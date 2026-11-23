@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" data-theme="battery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Favorites Student Laptop Finder</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <script type="module" src="src/js/favorites.js"></script>
+  </head>
+  <body class="flex min-h-screen flex-col bg-page text-body">
+    <header
+      id="site-header"
+      class="sticky top-0 z-10 border-b border-line bg-surface"
+    ></header>
+
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h1 class="text-3xl font-extrabold">My favorites</h1>
+          <p class="mt-1 text-muted">
+            Press "Saved" on a card to remove that laptop.
+          </p>
+        </div>
+        <button
+          type="button"
+          id="clear-button"
+          class="btn-ghost disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          Clear all
+        </button>
+      </div>
+
+      <!-- Statistics calculated in favorites.js -->
+      <dl class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+        <div class="rounded-xl border border-line bg-surface p-4">
+          <dt class="text-sm text-muted">Saved laptops</dt>
+          <dd id="stat-count" class="text-2xl font-extrabold">0</dd>
+        </div>
+        <div class="rounded-xl border border-line bg-surface p-4">
+          <dt class="text-sm text-muted">Total price</dt>
+          <dd id="stat-total" class="text-2xl font-extrabold text-accent">
+            $0
+          </dd>
+        </div>
+        <div class="rounded-xl border border-line bg-surface p-4">
+          <dt class="text-sm text-muted">Average price</dt>
+          <dd id="stat-average" class="text-2xl font-extrabold text-accent">
+            $0
+          </dd>
+        </div>
+      </dl>
+
+      <section
+        id="favorites-list"
+        class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      ></section>
+    </main>
+
+    <footer id="site-footer" class="border-t border-line bg-surface"></footer>
+  </body>
+</html>

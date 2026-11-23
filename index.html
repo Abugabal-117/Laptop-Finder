@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en" data-theme="battery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Laptop Finder</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <script type="module" src="src/js/index.js"></script>
+  </head>
+  <body class="flex min-h-screen flex-col bg-page text-body">
+    <header
+      id="site-header"
+      class="sticky top-0 z-10 border-b border-line bg-surface"
+    ></header>
+
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-10">
+      <!-- Introduction -->
+      <section class="text-center">
+        <h1 class="text-4xl font-extrabold sm:text-5xl">
+          Find the right laptop for your studies
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-muted">
+          Browse laptops, search and filter them, read the full specifications,
+          save your favorites and compare them side by side.
+        </p>
+        <div class="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
+          <a href="laptops.html" class="btn-action">Browse laptops</a>
+          <a href="favorites.html" class="btn-ghost">View favorites</a>
+        </div>
+      </section>
+
+      <!-- Live statistics calculated from the data in index.js -->
+      <section class="mt-12" aria-labelledby="stats-title">
+        <h2 id="stats-title" class="text-2xl font-bold">App statistics</h2>
+        <dl class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="rounded-xl border border-line bg-surface p-4">
+            <dt class="text-sm text-muted">Laptops</dt>
+            <dd id="stat-count" class="text-3xl font-extrabold">…</dd>
+          </div>
+          <div class="rounded-xl border border-line bg-surface p-4">
+            <dt class="text-sm text-muted">Lowest price</dt>
+            <dd id="stat-lowest" class="text-3xl font-extrabold text-accent">
+              …
+            </dd>
+          </div>
+          <div class="rounded-xl border border-line bg-surface p-4">
+            <dt class="text-sm text-muted">Longest battery</dt>
+            <dd id="stat-battery" class="text-3xl font-extrabold text-accent">
+              …
+            </dd>
+          </div>
+          <div class="rounded-xl border border-line bg-surface p-4">
+            <dt class="text-sm text-muted">Saved favorites</dt>
+            <dd id="stat-saved" class="text-3xl font-extrabold">0</dd>
+          </div>
+        </dl>
+        <div id="stats-error" class="mt-4"></div>
+      </section>
+
+      <!-- Links to the other pages -->
+      <section class="mt-12" aria-labelledby="pages-title">
+        <h2 id="pages-title" class="text-2xl font-bold">Explore the app</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <a href="laptops.html" class="laptop-card p-5">
+            <h3 class="text-lg font-bold text-accent">Laptops</h3>
+            <p class="mt-1 text-sm text-muted">
+              Search, filter and sort the whole catalogue.
+            </p>
+          </a>
+          <a href="details.html?id=1" class="laptop-card p-5">
+            <h3 class="text-lg font-bold text-accent">Details</h3>
+            <p class="mt-1 text-sm text-muted">
+              See the full specifications of one laptop.
+            </p>
+          </a>
+          <a href="favorites.html" class="laptop-card p-5">
+            <h3 class="text-lg font-bold text-accent">Favorites</h3>
+            <p class="mt-1 text-sm text-muted">
+              Your saved laptops with total and average price.
+            </p>
+          </a>
+          <a href="compare.html" class="laptop-card p-5">
+            <h3 class="text-lg font-bold text-accent">Compare</h3>
+            <p class="mt-1 text-sm text-muted">
+              Put two to four favorites side by side.
+            </p>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer" class="border-t border-line bg-surface"></footer>
+  </body>
+</html>

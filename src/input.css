@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  /* Battery Saver palette */
+  --color-battery-bg: #f0fdf4;
+  --color-battery-surface: #ffffff;
+  --color-battery-text: #052e16;
+  --color-battery-muted: #3f6b4f;
+  --color-battery-accent: #15803d;
+  --color-battery-accent-hover: #166534;
+  --color-battery-on-accent: #ffffff;
+  --color-battery-border: #bbf7d0;
+  --color-battery-best: #dcfce7;
+
+  /* Performance palette */
+  --color-perf-bg: #0b0b0f;
+  --color-perf-surface: #17171f;
+  --color-perf-text: #f5f5f4;
+  --color-perf-muted: #a8a29e;
+  --color-perf-accent: #f97316;
+  --color-perf-accent-hover: #fb923c;
+  --color-perf-on-accent: #111111;
+  --color-perf-border: #2a2a35;
+  --color-perf-best: #3a2412;
+}
+
+@theme inline {
+  --color-page: var(--page);
+  --color-surface: var(--surface);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-on-accent: var(--on-accent);
+  --color-line: var(--line);
+  --color-best: var(--best);
+}
+
+/* Default = Battery Saver. Custom CSS is allowed here: Tailwind has no utility for variable swapping. */
+:root,
+[data-theme="battery"] {
+  --page: var(--color-battery-bg);
+  --surface: var(--color-battery-surface);
+  --body: var(--color-battery-text);
+  --muted: var(--color-battery-muted);
+  --accent: var(--color-battery-accent);
+  --accent-hover: var(--color-battery-accent-hover);
+  --on-accent: var(--color-battery-on-accent);
+  --line: var(--color-battery-border);
+  --best: var(--color-battery-best);
+  color-scheme: light;
+}
+
+/* The theme is stored as data-theme on <html> (restored from localStorage on every page) */
+[data-theme="performance"] {
+  --page: var(--color-perf-bg);
+  --surface: var(--color-perf-surface);
+  --body: var(--color-perf-text);
+  --muted: var(--color-perf-muted);
+  --accent: var(--color-perf-accent);
+  --accent-hover: var(--color-perf-accent-hover);
+  --on-accent: var(--color-perf-on-accent);
+  --line: var(--color-perf-border);
+  --best: var(--color-perf-best);
+  color-scheme: dark;
+}
+
+@layer components {
+  /* Laptop card: used on laptops.html, favorites.html, and the skeleton */
+  .laptop-card {
+    @apply flex flex-col overflow-hidden rounded-xl border border-line bg-surface text-body shadow-sm
+           transition duration-200 hover:-translate-y-1 hover:shadow-lg focus-within:ring-2 focus-within:ring-accent;
+  }
+
+  /* Main action button: used on cards, details page, compare page, home page */
+  .btn-action {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent
+           transition duration-200 hover:bg-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-accent disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  /* Secondary / outline button: remove, clear, favorite toggle */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg border border-accent px-4 py-2 text-sm font-semibold text-accent
+           transition duration-200 hover:bg-accent hover:text-on-accent focus-visible:outline-2 focus-visible:outline-offset-2
+           focus-visible:outline-accent;
+  }
+
+  /* Form controls: overrides the @tailwindcss/forms defaults so they follow the theme */
+  .field {
+    @apply w-full rounded-lg border-line bg-surface text-body placeholder:text-muted
+           transition duration-200 focus:border-accent focus:ring-accent;
+  }
+
+  /* Typography plugin colors mapped to theme tokens (readable in both themes) */
+  .prose-theme {
+    @apply prose max-w-none;
+    --tw-prose-body: var(--body);
+    --tw-prose-headings: var(--body);
+    --tw-prose-bold: var(--body);
+    --tw-prose-links: var(--accent);
+  }
+}

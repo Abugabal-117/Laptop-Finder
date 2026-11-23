@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en" data-theme="battery">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laptops Student Laptop Finder</title>
+    <link rel="stylesheet" href="dist/output.css" />
+    <script type="module" src="src/js/laptops.js"></script>
+  </head>
+  <body class="flex min-h-screen flex-col bg-page text-body">
+    <header
+      id="site-header"
+      class="sticky top-0 z-10 border-b border-line bg-surface"
+    ></header>
+
+    <main class="mx-auto w-full max-w-7xl flex-1 px-4 py-8">
+      <h1 class="text-3xl font-extrabold">Laptop catalogue</h1>
+      <p class="mt-1 text-muted">
+        Search, filter and sort to find the right laptop for your studies.
+      </p>
+
+      <form
+        id="filters"
+        class="mt-6 grid grid-cols-1 gap-4 rounded-xl border border-line bg-surface p-4 sm:grid-cols-2 lg:grid-cols-6"
+        autocomplete="off"
+      >
+        <div class="sm:col-span-2 lg:col-span-2">
+          <label for="search" class="mb-1 block text-sm font-semibold"
+            >Search</label
+          >
+          <input
+            id="search"
+            name="search"
+            type="search"
+            class="field"
+            placeholder="Name or brand, e.g. Dell"
+          />
+        </div>
+
+        <div>
+          <label for="category" class="mb-1 block text-sm font-semibold"
+            >Category</label
+          >
+          <select id="category" name="category" class="field">
+            <option value="all">All categories</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="maxPrice" class="mb-1 block text-sm font-semibold"
+            >Max price ($)</label
+          >
+          <input
+            id="maxPrice"
+            name="maxPrice"
+            type="number"
+            min="0"
+            step="50"
+            class="field"
+            placeholder="e.g. 1000"
+          />
+        </div>
+
+        <div>
+          <label for="minRam" class="mb-1 block text-sm font-semibold"
+            >Min RAM</label
+          >
+          <select id="minRam" name="minRam" class="field">
+            <option value="0">Any</option>
+            <option value="8">8 GB +</option>
+            <option value="16">16 GB +</option>
+            <option value="32">32 GB +</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="sort" class="mb-1 block text-sm font-semibold"
+            >Sort by</label
+          >
+          <select id="sort" name="sort" class="field">
+            <option value="default">Default</option>
+            <option value="price-asc">Price: low to high</option>
+            <option value="price-desc">Price: high to low</option>
+            <option value="battery-desc">Battery: longest first</option>
+            <option value="battery-asc">Battery: shortest first</option>
+            <option value="weight-asc">Weight: lightest first</option>
+            <option value="weight-desc">Weight: heaviest first</option>
+          </select>
+        </div>
+
+        <div class="flex items-end sm:col-span-2 lg:col-span-6 lg:justify-end">
+          <button type="reset" class="btn-ghost w-full sm:w-auto">
+            Reset filters
+          </button>
+        </div>
+      </form>
+
+      <p
+        id="result-count"
+        class="mt-6 text-sm font-semibold text-muted"
+        aria-live="polite"
+      ></p>
+
+      <section
+        id="results"
+        class="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      ></section>
+    </main>
+
+    <footer id="site-footer" class="border-t border-line bg-surface"></footer>
+  </body>
+</html>
