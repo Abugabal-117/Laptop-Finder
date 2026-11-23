@@ -57,7 +57,7 @@ const renderComparison = (favorites) => {
     const cells = chosen
       .map((laptop) => {
         const isBest = best !== null && laptop[row.field] === best;
-        return `<td class="p-3 text-center capitalize ${isBest ? "bg-best font-bold text-accent" : ""}">${isBest ? "★ " : ""}${row.format(laptop[row.field])}</td>`;
+        return `<td class="p-3 text-center capitalize ${isBest ? "bg-best font-bold text-accent" : ""}">${isBest ? " " : ""}${row.format(laptop[row.field])}</td>`;
       })
       .join("");
     return `<tr class="border-t border-line"><th scope="row" class="p-3 text-left font-semibold text-muted">${row.label}</th>${cells}</tr>`;
