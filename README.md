@@ -3,7 +3,7 @@
 A responsive web app that helps students browse laptops, search and filter them, read full specifications,
 save favorites and compare them side by side.
 
-- **GitHub repo:** https://github.com/YOUR-USERNAME/YOUR-REPO <!-- replace with your link -->
+- **GitHub repo:** https://github.com/Abugabal-117/Laptop-Finder
 - **Built with:** HTML, JavaScript (ES modules), Tailwind CSS 4
 
 ## Install and build
